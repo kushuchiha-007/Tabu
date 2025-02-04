@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Special Valentine Journey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Cutest Valentine Proposal</title>
+  <!-- Optional: If you'd like a custom font, you can add a link to Google Fonts here -->
   <style>
     /* Basic Reset and Body Styling */
     * {
@@ -18,195 +19,230 @@
       overflow: hidden;
       height: 100vh;
       display: flex;
-      justify-content: center;
       align-items: center;
-    }
-    /* Common styling for screens */
-    .screen {
-      position: absolute;
-      width: 90%;
-      max-width: 600px;
+      justify-content: center;
       text-align: center;
+      position: relative;
+    }
+
+    /* Container for messages and final button */
+    .message-container {
+      max-width: 600px;
+      width: 90%;
+      background: rgba(0, 0, 0, 0.3);
       padding: 20px;
       border-radius: 10px;
-      background: rgba(0, 0, 0, 0.4);
-      animation: fadeIn 1.2s ease;
+      animation: fadeIn 1s ease forwards;
     }
+
+    /* Common text styling */
     h1 {
       font-size: 2.5em;
       margin-bottom: 20px;
     }
     p {
       font-size: 1.2em;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       line-height: 1.5;
     }
+
+    /* Proposal button */
     button {
-      padding: 12px 25px;
+      padding: 15px 30px;
       font-size: 1em;
       border: none;
-      border-radius: 5px;
-      background: #ff4b5c;
+      border-radius: 8px;
+      background-color: #ff4b5c;
       color: #fff;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
     }
     button:hover {
-      background: #ff2e3a;
+      background-color: #ff2e3a;
     }
-    /* Hidden by default */
+
+    /* Hide elements by default */
     .hidden {
       display: none;
     }
-    /* Fade-in Animation */
+
+    /* Fade in animation */
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
-    /* Animated Floating Hearts (for extra flair) */
+
+    /* Floating Hearts for the background */
     .heart {
       position: absolute;
       fill: rgba(255, 75, 92, 0.8);
       animation: float 6s infinite ease-in-out;
+      opacity: 0.7;
     }
     @keyframes float {
       0% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-20px) scale(1.2); }
       100% { transform: translateY(0) scale(1); }
     }
-    /* Position some hearts */
+    /* Position some hearts at various places */
     .heart:nth-child(1) {
-      top: 10%;
+      top: 15%;
       left: 10%;
       width: 40px;
       height: 40px;
       animation-duration: 7s;
     }
     .heart:nth-child(2) {
-      top: 80%;
-      right: 10%;
-      width: 30px;
-      height: 30px;
-      animation-duration: 6s;
-    }
-    .heart:nth-child(3) {
-      top: 50%;
+      top: 75%;
       left: 80%;
       width: 50px;
       height: 50px;
+      animation-duration: 5s;
+    }
+    .heart:nth-child(3) {
+      top: 50%;
+      left: 15%;
+      width: 30px;
+      height: 30px;
       animation-duration: 8s;
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating Hearts for visual flair -->
+  <!-- Floating Hearts Background -->
   <svg class="heart" viewBox="0 0 24 24">
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 
-             4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 
-             16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 
-             11.54L12 21.35z"/>
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+             2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+             C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
+             c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
   </svg>
   <svg class="heart" viewBox="0 0 24 24">
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 
-             4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 
-             16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 
-             11.54L12 21.35z"/>
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+             2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+             C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
+             c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
   </svg>
   <svg class="heart" viewBox="0 0 24 24">
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 
-             4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 
-             16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 
-             11.54L12 21.35z"/>
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+             2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+             C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
+             c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
   </svg>
 
-  <!-- Screen 1: Welcome -->
-  <div id="screen1" class="screen">
-    <h1>Happy Valentine's Day!</h1>
-    <p>I've prepared a special journey just for you...</p>
-    <button id="startBtn">Begin Your Journey</button>
+  <!-- Message Container -->
+  <div class="message-container" id="messageContainer">
+    <h1 id="heading"></h1>
+    <p id="paragraph"></p>
+    <button class="hidden" id="proposalBtn">Will You Be My Valentine?</button>
   </div>
 
-  <!-- Screen 2: The Puzzle -->
-  <div id="screen2" class="screen hidden">
-    <h1>First Challenge</h1>
-    <p>Solve this little puzzle: What has a heart that doesn't beat?</p>
-    <input type="text" id="puzzleInput" placeholder="Your Answer Here" style="padding: 10px; font-size: 1em; width: 80%; border: none; border-radius: 5px; margin-bottom: 20px;">
-    <br>
-    <button id="checkAnswerBtn">Submit Answer</button>
-    <p id="puzzleFeedback" style="margin-top: 20px;"></p>
-  </div>
-
-  <!-- Screen 3: The Reveal -->
-  <div id="screen3" class="screen hidden">
-    <h1>You Are Amazing!</h1>
-    <p>Your answer was <span id="userAnswer"></span>. But more than that, you make my heart race every day.</p>
-    <button id="continueBtn">Continue</button>
-  </div>
-
-  <!-- Screen 4: The Final Proposal -->
-  <div id="screen4" class="screen hidden">
-    <h1>My Heart Speaks...</h1>
-    <p>Every moment with you is a cherished memory. With every beat of my heart, I am reminded of your love and the beautiful journey we share.</p>
-    <button id="proposalBtn">Will You Be My Valentine?</button>
-  </div>
-
-  <!-- Screen 5: Celebration (after proposal) -->
-  <div id="screen5" class="screen hidden">
-    <h1>Thank You for Making My Heart Smile!</h1>
-    <p>I hope this journey was as delightful for you as you are for me. Happy Valentine's Day, my love!</p>
-  </div>
+  <!-- Confetti library (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 
   <script>
-    // Screen Navigation Logic
-    const screen1 = document.getElementById('screen1');
-    const screen2 = document.getElementById('screen2');
-    const screen3 = document.getElementById('screen3');
-    const screen4 = document.getElementById('screen4');
-    const screen5 = document.getElementById('screen5');
-
-    const startBtn = document.getElementById('startBtn');
-    const checkAnswerBtn = document.getElementById('checkAnswerBtn');
-    const continueBtn = document.getElementById('continueBtn');
-    const proposalBtn = document.getElementById('proposalBtn');
-    const puzzleInput = document.getElementById('puzzleInput');
-    const puzzleFeedback = document.getElementById('puzzleFeedback');
-    const userAnswerSpan = document.getElementById('userAnswer');
-
-    // Screen 1: Begin Journey
-    startBtn.addEventListener('click', () => {
-      screen1.classList.add('hidden');
-      screen2.classList.remove('hidden');
-    });
-
-    // Screen 2: Puzzle Submission
-    checkAnswerBtn.addEventListener('click', () => {
-      const answer = puzzleInput.value.trim().toLowerCase();
-      // Simple answer check (you can change the expected answer)
-      if(answer === "artichoke" || answer === "an artichoke") {
-        puzzleFeedback.textContent = "Correct! (Artichokes have a 'heart' but don't beat!)";
-        setTimeout(() => {
-          userAnswerSpan.textContent = answer;
-          screen2.classList.add('hidden');
-          screen3.classList.remove('hidden');
-        }, 2000);
-      } else {
-        puzzleFeedback.textContent = "Hmm, not quite. Think of a vegetable known for its 'heart.'";
+    /*****************************************************
+     * 1. MESSAGES & TIMING
+     * Customize these messages and durations as you like!
+     *****************************************************/
+    const steps = [
+      {
+        heading: "Hello, My Love...",
+        text: "I've been thinking about how lucky I am to have you in my life.",
+        delay: 3000 // Display for 3 seconds
+      },
+      {
+        heading: "Sweet Moments...",
+        text: "Every laugh, every hug, every shared dream – I cherish them all.",
+        delay: 4000 // Display for 4 seconds
+      },
+      {
+        heading: "A Little Secret...",
+        text: "Whenever I see you, my heart skips a beat. You light up my world.",
+        delay: 4000 // Display for 4 seconds
+      },
+      {
+        heading: "Eternal Happiness...",
+        text: "All I want is to bring a smile to your face, today and forever.",
+        delay: 5000 // Display for 5 seconds
       }
+    ];
+
+    /*****************************************************
+     * 2. PAGE ELEMENTS
+     *****************************************************/
+    const headingEl = document.getElementById("heading");
+    const paragraphEl = document.getElementById("paragraph");
+    const proposalBtn = document.getElementById("proposalBtn");
+    const messageContainer = document.getElementById("messageContainer");
+
+    /*****************************************************
+     * 3. SEQUENCE LOGIC
+     *****************************************************/
+    let currentStep = 0;
+
+    function showStep(stepIndex) {
+      if (stepIndex < steps.length) {
+        const { heading, text, delay } = steps[stepIndex];
+        headingEl.textContent = heading;
+        paragraphEl.textContent = text;
+
+        // Hide proposal button if visible
+        proposalBtn.classList.add("hidden");
+
+        // Move to the next step after 'delay' milliseconds
+        setTimeout(() => {
+          currentStep++;
+          showStep(currentStep);
+        }, delay);
+      } else {
+        // All steps done, show the final proposal
+        headingEl.textContent = "You Are My Everything";
+        paragraphEl.textContent = "I can't imagine my life without you in it...";
+        proposalBtn.classList.remove("hidden");
+      }
+    }
+
+    // Start the sequence
+    showStep(currentStep);
+
+    /*****************************************************
+     * 4. CONFETTI CELEBRATION ON PROPOSAL
+     *****************************************************/
+    proposalBtn.addEventListener("click", () => {
+      proposalBtn.classList.add("hidden");
+      headingEl.textContent = "Will You Be Mine?";
+      paragraphEl.textContent = "Life is more magical with you by my side. Be my Valentine, please!";
+
+      // Launch Confetti
+      runConfetti();
     });
 
-    // Screen 3: Continue to Proposal
-    continueBtn.addEventListener('click', () => {
-      screen3.classList.add('hidden');
-      screen4.classList.remove('hidden');
-    });
+    function runConfetti() {
+      // Basic confetti burst
+      const duration = 3 * 1000; // 3 seconds
+      const animationEnd = Date.now() + duration;
 
-    // Screen 4: Proposal Button Click
-    proposalBtn.addEventListener('click', () => {
-      // Optionally, add a delay or a fancy transition before final screen
-      screen4.classList.add('hidden');
-      screen5.classList.remove('hidden');
-    });
+      const confettiFrame = () => {
+        // Launch confetti particles
+        confetti({
+          particleCount: 5,
+          startVelocity: 30,
+          spread: 360,
+          origin: {
+            x: Math.random(),
+            // Random spread on the y axis
+            y: Math.random() - 0.2
+          }
+        });
+
+        // Keep going until time runs out
+        if (Date.now() < animationEnd) {
+          requestAnimationFrame(confettiFrame);
+        }
+      };
+      confettiFrame();
+    }
   </script>
 </body>
 </html>
