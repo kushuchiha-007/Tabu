@@ -73,13 +73,59 @@
     button:hover {
       background-color: #c2185b;
     }
+    /* FLOATING HEARTS FOR ADDED ROMANCE */
+    .heart {
+      position: absolute;
+      fill: rgba(255, 75, 92, 0.7);
+      animation: float 6s infinite ease-in-out;
+    }
+    @keyframes float {
+      0%   { transform: translateY(0)   scale(1); }
+      50%  { transform: translateY(-20px) scale(1.2); }
+      100% { transform: translateY(0)   scale(1); }
+    }
+    .heart:nth-child(1) {
+      top: 10%; left: 10%;
+      width: 40px; height: 40px;
+      animation-duration: 7s;
+    }
+    .heart:nth-child(2) {
+      top: 80%; left: 80%;
+      width: 50px; height: 50px;
+      animation-duration: 5s;
+    }
+    .heart:nth-child(3) {
+      top: 50%; left: 15%;
+      width: 30px; height: 30px;
+      animation-duration: 8s;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Slide 1: Delhi City (Verified) -->
+  <!-- FLOATING HEARTS BACKGROUND -->
+  <svg class="heart" viewBox="0 0 24 24">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+             2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+             C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
+             c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+  <svg class="heart" viewBox="0 0 24 24">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+             2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+             C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
+             c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+  <svg class="heart" viewBox="0 0 24 24">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+             2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
+             C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
+             c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+
+  <!-- Slide 1: Delhi City -->
   <div class="slide" id="slide1"
-       style="background-image: url('https://images.unsplash.com/photo-1580983561121-1536e124a95c?w=1080');">
+       style="background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80');">
     <div class="overlay">
       <h1>Our Delhi Love Adventure</h1>
       <p>
@@ -89,9 +135,9 @@
     </div>
   </div>
 
-  <!-- Slide 2: Hauz Khas Fort (Verified) -->
+  <!-- Slide 2: Hauz Khas Fort -->
   <div class="slide" id="slide2"
-       style="background-image: url('https://images.unsplash.com/photo-1542731717-12ad3303eb64?w=1080');">
+       style="background-image: url('https://images.unsplash.com/photo-1573906432770-93b1bd18750f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80');">
     <div class="overlay">
       <h1>Hauz Khas Fort</h1>
       <p>
@@ -101,9 +147,9 @@
     </div>
   </div>
 
-  <!-- Slide 3: Chole Bhature (Verified) -->
+  <!-- Slide 3: Chole Bhature -->
   <div class="slide" id="slide3"
-       style="background-image: url('https://images.unsplash.com/photo-1598784584812-d91da82d8d61?w=1080');">
+       style="background-image: url('https://images.unsplash.com/photo-1604866833776-58b0ac4ba48e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80');">
     <div class="overlay">
       <h1>Chole Bhature Cravings</h1>
       <p>
@@ -113,9 +159,9 @@
     </div>
   </div>
 
-  <!-- Slide 4: Pizza (Verified) -->
+  <!-- Slide 4: Pizza -->
   <div class="slide" id="slide4"
-       style="background-image: url('https://images.unsplash.com/photo-1571091718767-18b5b1457dd7?w=1080');">
+       style="background-image: url('https://images.unsplash.com/photo-1523986371872-9d3ba2e2ab63?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80');">
     <div class="overlay">
       <h1>Pizza from Lapinoz</h1>
       <p>
@@ -125,9 +171,9 @@
     </div>
   </div>
 
-  <!-- Slide 5: Arcade Dates (Verified) -->
+  <!-- Slide 5: Arcade Dates -->
   <div class="slide" id="slide5"
-       style="background-image: url('https://images.unsplash.com/photo-1563956151253-51302b762f80?w=1080');">
+       style="background-image: url('https://images.unsplash.com/photo-1517935706615-2717063c2225?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80');">
     <div class="overlay">
       <h1>Arcade Dates</h1>
       <p>
@@ -137,9 +183,9 @@
     </div>
   </div>
 
-  <!-- Slide 6: Plants vs. Zombies (Verified) -->
+  <!-- Slide 6: Plants vs. Zombies (Garden Theme) -->
   <div class="slide" id="slide6"
-       style="background-image: url('https://images.unsplash.com/photo-1501179692566-11c38efc85f0?w=1080');">
+       style="background-image: url('https://images.unsplash.com/photo-1604152135912-04a58d855efc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80');">
     <div class="overlay">
       <h1>Plants vs. Zombies</h1>
       <p>
@@ -149,9 +195,9 @@
     </div>
   </div>
 
-  <!-- Slide 7: Red Dead Redemption (Verified) -->
+  <!-- Slide 7: Red Dead Redemption -->
   <div class="slide" id="slide7"
-       style="background-image: url('https://images.unsplash.com/photo-1576402187876-01f53c1f9903?w=1080');">
+       style="background-image: url('https://images.unsplash.com/photo-1540488343864-1ea68c2d3dac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80');">
     <div class="overlay">
       <h1>Red Dead Redemption</h1>
       <p>
@@ -174,30 +220,96 @@
     </div>
   </div>
 
-  <!-- JavaScript to handle slides -->
-  <script>
-    const slides = document.querySelectorAll(".slide");
-    let currentSlide = 0;
+  <!-- CONFETTI LIBRARY -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
 
+  <script>
+    /***********************************************************************
+     * 1. SLIDES & TIMING
+     * Increase or decrease durations (in milliseconds) to adjust the pace.
+     ***********************************************************************/
+    const slides = [
+      { id: "slide1", duration: 4500 },   // 4.5 seconds
+      { id: "slide2", duration: 4000 },
+      { id: "slide3", duration: 4000 },
+      { id: "slide4", duration: 4000 },
+      { id: "slide5", duration: 4500 },
+      { id: "slide6", duration: 4000 },
+      { id: "slide7", duration: 4000 },
+      // Final slide displayed until the user clicks the button
+      { id: "slideFinal", duration: 999999 } // effectively "infinite"
+    ];
+
+    let currentSlide = 0;
+    let timeoutId = null;
+
+    // Function to show a specific slide
     function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === index);
+      // Hide all slides
+      slides.forEach(s => {
+        document.getElementById(s.id).classList.remove("active");
       });
+      // Show the current slide
+      document.getElementById(slides[index].id).classList.add("active");
     }
 
+    // Function to move to the next slide
     function nextSlide() {
       currentSlide++;
       if (currentSlide < slides.length) {
         showSlide(currentSlide);
-        setTimeout(nextSlide, 4000); // Adjust timing here
+        scheduleNextSlide();
       }
     }
 
-    window.onload = () => {
-      showSlide(currentSlide);
-      setTimeout(nextSlide, 4000);
-    };
-  </script>
+    // Schedule transitioning to the next slide
+    function scheduleNextSlide() {
+      clearTimeout(timeoutId);
+      // Only schedule if we’re not on the final slide
+      if (currentSlide < slides.length - 1) {
+        timeoutId = setTimeout(() => {
+          nextSlide();
+        }, slides[currentSlide].duration);
+      }
+    }
 
+    // Start the slideshow
+    function startShow() {
+      currentSlide = 0;
+      showSlide(currentSlide);
+      scheduleNextSlide();
+    }
+
+    /***********************************************************************
+     * 2. CONFETTI ON BUTTON CLICK
+     ***********************************************************************/
+    const proposalBtn = document.getElementById("proposalBtn");
+    proposalBtn.addEventListener("click", () => {
+      runConfetti();
+      proposalBtn.innerText = "You Said Yes!";
+    });
+
+    function runConfetti() {
+      const duration = 3 * 1000; // 3 seconds
+      const end = Date.now() + duration;
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          startVelocity: 30,
+          spread: 360,
+          origin: {
+            x: Math.random(),
+            y: Math.random() - 0.2
+          }
+        });
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    }
+
+    // Initiate the slideshow on page load
+    window.onload = startShow;
+  </script>
 </body>
 </html>
