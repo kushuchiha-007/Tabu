@@ -2,315 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Our Delhi Love Adventure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Love Story</title>
   <style>
-    /* BASIC RESET AND BODY STYLING */
     * {
-      margin: 0; 
-      padding: 0; 
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
     body {
-      background: #333;
       color: #fff;
-      font-family: sans-serif;
-      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
       height: 100vh;
-      position: relative;
-    }
-    /* SLIDE CONTAINER STYLING */
-    .slide {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+      transition: background 1s ease-in-out;
+    }
+    .container {
+      position: absolute;
       width: 100%;
       height: 100%;
+    }
+    .scene {
+      display: none;
       position: absolute;
-      top: 0; 
-      left: 0;
-      text-align: center;
-      padding: 20px;
-      opacity: 0;
-      transition: opacity 1s ease;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      animation: fadeIn 2s ease-in-out;
     }
-    .slide.active {
-      opacity: 1;
-      z-index: 2;
+    .scene.active {
+      display: flex;
     }
-    /* BACKDROP OVERLAY FOR TEXT READABILITY */
     .overlay {
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 15px;
       max-width: 600px;
-      margin: 0 auto;
     }
     h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1.2em;
-      line-height: 1.5;
+      font-size: 2.5em;
       margin-bottom: 20px;
     }
-    /* PROPOSAL BUTTON */
-    button {
+    p {
+      font-size: 1.3em;
+      margin-bottom: 20px;
+    }
+    .button {
       padding: 15px 30px;
-      font-size: 1em;
+      font-size: 1.3em;
       border: none;
-      border-radius: 8px;
-      background-color: #e91e63;
-      color: #fff;
+      border-radius: 10px;
+      background: #ff4b5c;
+      color: white;
       cursor: pointer;
-      transition: background 0.3s ease;
+      transition: 0.3s;
     }
-    button:hover {
-      background-color: #c2185b;
+    .button:hover {
+      background: #ff2e3a;
     }
-    /* FLOATING HEARTS FOR ADDED ROMANCE */
-    .heart {
-      position: absolute;
-      fill: rgba(255, 75, 92, 0.7);
-      animation: float 6s infinite ease-in-out;
-    }
-    @keyframes float {
-      0%   { transform: translateY(0)   scale(1); }
-      50%  { transform: translateY(-20px) scale(1.2); }
-      100% { transform: translateY(0)   scale(1); }
-    }
-    .heart:nth-child(1) {
-      top: 10%; left: 10%;
-      width: 40px; height: 40px;
-      animation-duration: 7s;
-    }
-    .heart:nth-child(2) {
-      top: 80%; left: 80%;
-      width: 50px; height: 50px;
-      animation-duration: 5s;
-    }
-    .heart:nth-child(3) {
-      top: 50%; left: 15%;
-      width: 30px; height: 30px;
-      animation-duration: 8s;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
-</head>
-<body>
-
-  <!-- FLOATING HEARTS BACKGROUND -->
-  <svg class="heart" viewBox="0 0 24 24">
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
-             2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
-             C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
-             c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-  </svg>
-  <svg class="heart" viewBox="0 0 24 24">
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
-             2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
-             C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
-             c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-  </svg>
-  <svg class="heart" viewBox="0 0 24 24">
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
-             2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09
-             C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5
-             c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-  </svg>
-
-  <!-- SLIDES (AUTO-ROTATED VIA JAVASCRIPT) -->
-  <!-- Slide 1: General Delhi reference -->
-  <div class="slide" id="slide1"
-       style="background-image: url('https://images.unsplash.com/photo-1590056176069-45a92bbac4d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-    <div class="overlay">
-      <h1>Our Delhi Love Adventure</h1>
-      <p>
-        I never would have liked this godforsaken city if it weren't for you, my love.
-        Let's revisit those special memories...
-      </p>
-    </div>
-  </div>
-
-  <!-- Slide 2: Hauz Khas Fort -->
-  <div class="slide" id="slide2"
-       style="background-image: url('https://images.unsplash.com/photo-1647695403713-122f06c6ab2b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-    <div class="overlay">
-      <h1>Hauz Khas Fort</h1>
-      <p>
-        Where I mustered the courage to ask you to be my girlfriend. The fort witnessed
-        the start of something extraordinary—our journey together.
-      </p>
-    </div>
-  </div>
-
-  <!-- Slide 3: Chole Bhature -->
-  <div class="slide" id="slide3"
-       style="background-image: url('https://images.unsplash.com/photo-1650136088320-1f655bac55be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-    <div class="overlay">
-      <h1>Chole Bhature Cravings</h1>
-      <p>
-        Our evenings weren't complete without a plate of Haldiram's
-        chole bhature. The perfect dish for our lazy asses.
-      </p>
-    </div>
-  </div>
-
-  <!-- Slide 4: Lapinoz Pizza -->
-  <div class="slide" id="slide4"
-       style="background-image: url('https://images.unsplash.com/photo-1601921989620-f699b503e962?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-    <div class="overlay">
-      <h1>Pizza from Lapinoz</h1>
-      <p>
-        Whether it was a lazy weekday or a movie night in, Lapinoz pizza 
-        (Mac & Cheezy 7) never failed to bring us closer—slice by slice.
-      </p>
-    </div>
-  </div>
-
-  <!-- Slide 5: Arcade Dates -->
-  <div class="slide" id="slide5"
-       style="background-image: url('https://images.unsplash.com/photo-1572728806044-90a523b0c94f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXJjYWRlJTIwZ2FtZXN8ZW58MHx8MHx8&crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-    <div class="overlay">
-      <h1>Arcade Dates</h1>
-      <p>
-        The flashing lights, the friendly competitions—arcade games were our playground.
-        And that basketball game where I beat you... care for a rematch, my love?
-      </p>
-    </div>
-  </div>
-
-  <!-- Slide 6: Plants vs Zombies -->
-  <div class="slide" id="slide6"
-       style="background-image: url('https://images.unsplash.com/photo-1524317207612-ffa3ff7a2f8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-    <div class="overlay">
-      <h1>Plants vs. Zombies</h1>
-      <p>
-        Late-night battles against zombies, strategizing together—it was just us,
-        some peashooters, endless laughter, and our precious little garden.
-      </p>
-    </div>
-  </div>
-
-  <!-- Slide 7: Red Dead Redemption -->
-  <div class="slide" id="slide7"
-       style="background-image: url('https://images.unsplash.com/photo-1583993481229-f16773d3a2aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080');">
-    <div class="overlay">
-      <h1>Red Dead Redemption</h1>
-      <p>
-        Riding across the Wild West, chasing epic adventures—yet nothing felt more exhilarating 
-        than simply having you by my side.
-      </p>
-    </div>
-  </div>
-
-  <!-- FINAL PROPOSAL SLIDE -->
-  <div class="slide" id="slideFinal"
-       style="background-image: linear-gradient(135deg, #f56262, #fbb13c);">
-    <div class="overlay">
-      <h1>Our Next Chapter</h1>
-      <p>
-        Every day with you feels like a new adventure. 
-        Let's keep exploring life together, hand in hand.
-      </p>
-      <button id="proposalBtn">Will You Be My Valentine?</button>
-    </div>
-  </div>
-
-  <!-- CONFETTI LIBRARY -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
-
+</head>
+<body id="mainBody">
+  <div class="container">
+    <div class="scene active" id="scene1">
+      <div class="overlay">
+        <h1>Welcome to Our Journey</h1>
+        <p>I never would have liked this city if it weren't for you, my love.</p>
+        <button class="button" onclick="nextScene(2, '#ff6f61')">Continue</button>
+      </div>
+    </div>
+    <div class="scene" id="scene2">
+      <div class="overlay">
+        <h1>Hauz Khas Fort</h1>
+        <p>The place where I asked you to be mine forever.</p>
+        <button class="button" onclick="nextScene(3, '#ffb400')">Next</button>
+      </div>
+    </div>
+    <div class="scene" id="scene3">
+      <div class="overlay">
+        <h1>Chole Bhature Dates</h1>
+        <p>Nothing beats our love for food and each other.</p>
+        <button class="button" onclick="nextScene(4, '#a2d2ff')">Next</button>
+      </div>
+    </div>
+    <div class="scene" id="scene4">
+      <div class="overlay">
+        <h1>Arcade Nights</h1>
+        <p>From Plants vs. Zombies to Red Dead Redemption, every game was better with you.</p>
+        <button class="button" onclick="nextScene(5, '#a8e6cf')">Next</button>
+      </div>
+    </div>
+    <div class="scene" id="scene5">
+      <div class="overlay">
+        <h1>Will You Be My Valentine?</h1>
+        <p>Let’s continue making memories together.</p>
+        <button class="button" onclick="showConfetti()">Yes, Forever!</button>
+      </div>
+    </div>
+  </div>
   <script>
-    /***********************************************************************
-     * 1. SLIDES & TIMING
-     * Increase or decrease durations (in milliseconds) to adjust the pace.
-     ***********************************************************************/
-    const slides = [
-      { id: "slide1", duration: 4500 },   // 4.5 seconds
-      { id: "slide2", duration: 4000 },
-      { id: "slide3", duration: 4000 },
-      { id: "slide4", duration: 4000 },
-      { id: "slide5", duration: 4500 },
-      { id: "slide6", duration: 4000 },
-      { id: "slide7", duration: 4000 },
-      // Final slide displayed until the user clicks the button
-      { id: "slideFinal", duration: 999999 } // effectively "infinite"
-    ];
-
-    let currentSlide = 0;
-    let timeoutId = null;
-
-    // Function to show a specific slide
-    function showSlide(index) {
-      // Hide all slides
-      slides.forEach(s => {
-        document.getElementById(s.id).classList.remove("active");
+    function nextScene(sceneNumber, color) {
+      document.querySelectorAll(".scene").forEach(scene => scene.classList.remove("active"));
+      document.getElementById("scene" + sceneNumber).classList.add("active");
+      document.body.style.background = color;
+    }
+    function showConfetti() {
+      confetti({
+        particleCount: 100,
+        spread: 160,
+        origin: { y: 0.6 }
       });
-      // Show the current slide
-      document.getElementById(slides[index].id).classList.add("active");
+      setTimeout(() => alert("I knew you’d say yes! ❤️"), 200);
     }
-
-    // Function to move to the next slide
-    function nextSlide() {
-      currentSlide++;
-      if (currentSlide < slides.length) {
-        showSlide(currentSlide);
-        scheduleNextSlide();
-      }
-    }
-
-    // Schedule transitioning to the next slide
-    function scheduleNextSlide() {
-      clearTimeout(timeoutId);
-      // Only schedule if we’re not on the final slide
-      if (currentSlide < slides.length - 1) {
-        timeoutId = setTimeout(() => {
-          nextSlide();
-        }, slides[currentSlide].duration);
-      }
-    }
-
-    // Start the slideshow
-    function startShow() {
-      currentSlide = 0;
-      showSlide(currentSlide);
-      scheduleNextSlide();
-    }
-
-    /***********************************************************************
-     * 2. CONFETTI ON BUTTON CLICK
-     ***********************************************************************/
-    const proposalBtn = document.getElementById("proposalBtn");
-    proposalBtn.addEventListener("click", () => {
-      runConfetti();
-      proposalBtn.innerText = "You Said Yes!";
-    });
-
-    function runConfetti() {
-      const duration = 3 * 1000; // 3 seconds
-      const end = Date.now() + duration;
-      (function frame() {
-        confetti({
-          particleCount: 5,
-          startVelocity: 30,
-          spread: 360,
-          origin: {
-            x: Math.random(),
-            y: Math.random() - 0.2
-          }
-        });
-        if (Date.now() < end) {
-          requestAnimationFrame(frame);
-        }
-      })();
-    }
-
-    // Initiate the slideshow on page load
-    window.onload = startShow;
   </script>
 </body>
 </html>
